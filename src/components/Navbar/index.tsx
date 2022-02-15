@@ -1,12 +1,15 @@
 import { Flex, HStack, Link, List, ListItem } from "@chakra-ui/react";
+import { ActiveLink } from "../ActiveLink";
 
 export function Navbar() {
   return (
-    <Flex as="nav" display={["none", "flex"]} mt={15} mb={50} p="4">
+    <Flex as="nav" display={["none", "flex"]} mt={15} mb={50}>
       <List fontFamily="Lawyer Gothic">
-        <HStack spacing="4">
+        <HStack spacing={30}>
           <ListItem>
-            <Link>Matheus</Link>
+            <ActiveLink href="/" activeClassName={""}>
+              <Link>Matheus</Link>
+            </ActiveLink>
           </ListItem>
 
           <ListItem>
