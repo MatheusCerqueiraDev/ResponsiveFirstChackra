@@ -16,7 +16,7 @@ export const theme = extendTheme({
     },
   },
   fonts: {
-    heading: "Roboto",
+    heading: "Lawyer Gothic",
     body: "Roboto",
   },
   styles: {

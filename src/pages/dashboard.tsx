@@ -1,6 +1,9 @@
 import { Box, Flex, SimpleGrid, Text, theme } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
+import { useState } from "react";
+import { AiOutlineMenuUnfold } from "react-icons/ai";
 import Header from "../components/Header";
+import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
 
 const Chart = dynamic(() => import("react-apexcharts"), {
@@ -22,11 +25,44 @@ const options = {
 const series = [{ name: "Commits", data: [7, 12, 15, 8, 14] }];
 
 export default function Dashboard() {
+  const [sidebarhandler, setSidebarHandler] = useState(false);
+
+  function HandleSidebar() {
+    setSidebarHandler(!sidebarhandler);
+  }
+
   return (
     <Flex direction="column" h="100vh">
       <Header />
-      <Flex width="100%" my="6" maxWidth={1480} mx="auto" px="6">
-        <Sidebar />
+      <Flex
+        display="block"
+        justify="space-between"
+        width="100%"
+        maxWidth={1480}
+        mx="auto"
+        px="6"
+      >
+        <Flex justify="flex-start">
+          {sidebarhandler ? (
+            <Sidebar
+              handleSidebar={HandleSidebar}
+              sidebarhandler={sidebarhandler}
+            />
+          ) : (
+            <>
+              <Flex>
+                <Flex
+                  as="span"
+                  display={["flex", "none"]}
+                  onClick={HandleSidebar}
+                >
+                  {sidebarhandler ? "" : <AiOutlineMenuUnfold size={25} />}
+                </Flex>
+                <Navbar />
+              </Flex>
+            </>
+          )}
+        </Flex>
 
         <SimpleGrid
           sx={{ align: "flex-start" }}

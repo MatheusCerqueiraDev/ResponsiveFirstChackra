@@ -6,13 +6,14 @@ export default function Logo() {
       align="center"
       as="h1"
       display="block"
-      fontSize="3xl"
-      fontWeight="bold"
+      fontSize={["3xl", "xl"]}
+      fontWeight={["700", "900"]}
+      fontFamily="Lawyer Gothic"
       letterSpacing="tight"
-      w="62"
+      w="100%"
     >
       MAC Query
-      <Text as="h6" textAlign="center" fontSize={["smaller", "md"]}>
+      <Text as="h6" textAlign="center" fontSize="x-small">
         Software Solutions
       </Text>
     </Text>

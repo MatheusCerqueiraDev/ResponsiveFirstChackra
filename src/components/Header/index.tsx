@@ -14,7 +14,9 @@ export default function Header() {
       px="6"
       align="center"
     >
-      <Logo />
+      <Flex flex={["12", "1"]}>
+        <Logo />
+      </Flex>
 
       {/* Search  */}
       <Search />
