@@ -1,16 +1,12 @@
 import { Box, Flex, SimpleGrid, Text, theme } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { AiOutlineMenuUnfold } from "react-icons/ai";
-import Header from "../components/Header";
-import { Navbar } from "../components/Navbar";
-import { Sidebar } from "../components/Sidebar";
 
 const Chart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-const options = {
+const chartConfig = {
   chart: {
     toolbar: {
       show: false,
@@ -33,7 +29,6 @@ export default function Dashboard() {
 
   return (
     <Flex direction="column" h="100vh">
-      <Header />
       <Flex
         display="block"
         justify="space-between"
@@ -42,28 +37,6 @@ export default function Dashboard() {
         mx="auto"
         px="6"
       >
-        <Flex justify="flex-start">
-          {sidebarhandler ? (
-            <Sidebar
-              handleSidebar={HandleSidebar}
-              sidebarhandler={sidebarhandler}
-            />
-          ) : (
-            <>
-              <Flex>
-                <Flex
-                  as="span"
-                  display={["flex", "none"]}
-                  onClick={HandleSidebar}
-                >
-                  {sidebarhandler ? "" : <AiOutlineMenuUnfold size={25} />}
-                </Flex>
-                <Navbar />
-              </Flex>
-            </>
-          )}
-        </Flex>
-
         <SimpleGrid
           sx={{ align: "flex-start" }}
           gap="4"
@@ -74,7 +47,12 @@ export default function Dashboard() {
             <Text fontWeight="700" mb="4" fontSize={["xl", "lg"]}>
               Actions no Github
             </Text>
-            <Chart options={options} series={series} height={160} type="area" />
+            <Chart
+              options={chartConfig}
+              series={series}
+              height={160}
+              type="area"
+            />
           </Box>
           <Box p="8" bg="gray.800" borderRadius={8}>
             <Text fontWeight="700" mb="4" fontSize={["xl", "lg"]}>

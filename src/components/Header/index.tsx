@@ -1,7 +1,9 @@
 import { Avatar, Box, Flex, HStack, Icon, Text } from "@chakra-ui/react";
-import { RiNotificationLine, RiUserAddLine } from "react-icons/ri";
+import { MdOutlineTranslate } from "react-icons/md";
+import { RiNotificationLine } from "react-icons/ri";
 import Logo from "../Logo";
 import Search from "../Search";
+
 export default function Header() {
   return (
     <Flex
@@ -18,10 +20,7 @@ export default function Header() {
         <Logo />
       </Flex>
 
-      {/* Search  */}
       <Search />
-
-      {/* UseMenu */}
 
       <Flex align="center" ml="auto">
         <HStack
@@ -35,7 +34,7 @@ export default function Header() {
           borderColor="gray.700"
         >
           <Icon as={RiNotificationLine} fontSize="20" />
-          <Icon as={RiUserAddLine} fontSize="20" />
+          <Icon as={MdOutlineTranslate} fontSize="20" />
         </HStack>
 
         <Flex align="center" display={["none", "flex"]}>

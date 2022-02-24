@@ -3,26 +3,26 @@ import { ActiveLink } from "../ActiveLink";
 
 export function Navbar() {
   return (
-    <Flex as="nav" display={["none", "flex"]} mt={15} mb={50}>
+    <Flex as="nav" display={["none", "flex"]} mt={15} mb={50} align="center">
       <List fontFamily="Lawyer Gothic">
         <HStack spacing={30}>
           <ListItem>
-            <ActiveLink href="/" activeClassName={""}>
-              <Link>Matheus</Link>
+            <ActiveLink activeClassName={" color: pink.500"} href="/home">
+              <Link>Home</Link>
             </ActiveLink>
+          </ListItem>
+          <ListItem>
+            <Link href="/aboutme">Matheus</Link>
           </ListItem>
 
           <ListItem>
-            <Link>asdsadfa</Link>
+            <Link href="/contact">Contact</Link>
           </ListItem>
           <ListItem>
-            <Link>wasssup</Link>
+            <Link href="/clients">Clients</Link>
           </ListItem>
           <ListItem>
-            <Link>github</Link>
-          </ListItem>
-          <ListItem>
-            <Link>Linkedinho</Link>
+            <Link href="/projects">Projects</Link>
           </ListItem>
         </HStack>
       </List>
